@@ -23,9 +23,9 @@ RGB画像から3dの人間の体のパーツをマッピングする
 ![figure4](./images/figure4.png)
 
 評価方法
-* point-wize
+* point-wize  
 ![式1](./images/式1.png)
-* pre-instance
+* pre-instance  
 ![式2](./images/式2.png)
 
 #### 学習方法
@@ -38,7 +38,7 @@ DenseRegression[13]とMask-RCNN[15]を合わせたものでDensePose-RCNNと呼�
 1. パートセグメンテーション：背景と人を認識する（普通のcross entropyで評価している）
 1. ピクセルローカライゼーション：人間は24分割する+背景で全てで全25分割
 
-![式3](../images/式3.png)
+![式3](./images/式3.png)
 
 ###### Region-based Dense Pose回帰
 
@@ -125,4 +125,4 @@ Depthセンサーを使ったアプローチ（インプットする画像が1�
 精度をあげるためにアーキテクチャを変更した。
 [15]を取り入れている。
 
-GTX 1080 GPUで1秒間240x320の画像を20~26フレーム、800x1000の画像を4~5フレーム処理する。
+GTX 1080 GPUで1秒間240x320の画像を20、26フレーム、800x1000の画像を4、5フレーム処理する。
