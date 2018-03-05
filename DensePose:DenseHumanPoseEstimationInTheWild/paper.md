@@ -34,12 +34,52 @@ figure 4
 * pre-instance
 式
 
-学習方法
+#### 学習方法
 DenseRegression(13)とMask-RCNN（15）を合わせたもの
 DensePose-RCNNと呼ぶ
 精度向上とスパースの補正もできる
 
+###### Fully-convolutional dense pose regression
+分類とDenseRegに似ている回帰を混ぜたもの
 
+1. パートセグメンテーション：背景と人を認識する（普通のcross entropyで評価している）
+1. ピクセルローカライゼーション人間は24分割する+背景で全てで25分割
+式3
+
+###### Region-based Dense Pose Regression
+
+Fully-convolutional dense pose regressionは簡単に学習できるが、タスクがかなり多くなってしまう
+リージョンベースのアプローチを取り入れる（34,15） regions-of-interestを取りれている（ROI）、region-adapted features through ROI pooling（16,15）
+同時にend-to-end-mannerも取り入れる（34）
+
+実際のアーキテクチャでは、ResNet50FPN(15)からはじまり、Feature pyramid network（25）があり、ROI-Align poolingをアーキテクチャの前に接続した
+
+figure7
+
+全結合ネットワークをROI poolingの前にもってきた
+役割は2つあり
+
+1. 分類の生成
+1. DenseRegの効率化に繋げる回帰ヘッドの追加
+
+Mask-RCNNと全く同じアーキテクチャを使っている
+stackが8の3x3の全結合で、Reluレイヤーは512チャネルある
+GTX1080で320x240で25fps、800x1000で4-5fpsの処理をする
+
+###### Multi-task cascaded architectures
+
+2つの手法でやっているため、パフォーマンスが向上した
+figure8
+
+###### Distillation-based ground-truth interpolation
+
+一度ティーチャーネットワークを通してから学習をさせると精度があがる
+ティーチャーネットワークではスパース補正を行なったアノテーションだけ付与する一人の人に対して100〜150の
+
+figure9
+
+## 評価
+22, 27の方法では分類に失敗することがある
 
 
 ## 関連研究
