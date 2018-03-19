@@ -5,13 +5,13 @@
 ## 研究成果
 
 イメージピクセルから全結合のネットワークを使って密集テンプレートグリッドを生成した
+顔のパーツの分類にフォーカスしている
 Statistical Deformable Modelsで初期化する state of the art の300Wのベンチマークで密度の共分散も取得することができた
 
 [3]のcylindrical unwrappingで顔の表面を認識できるようになった
 [55, 39]を使ったフィッテイング
 [22,55]pixelごとのUVコーディネート
 
-式2
 figure2
 
 uhとhvの行列
@@ -20,14 +20,46 @@ uhは、分断したqhと連続したrhを使う
 
 d = 1/k 定量化のサイズ
 
-
-
 uhとqhとrhの評価
 式2
 
 
 qとrを使った方が良い結果がでた
 fig5
+
+顔は8つの部分に分ける
+fig6
+
+DeepLab-v2[11]と比較して分類の精度は向上した
+table1
+
+####Landmark
+
+landmark-matching[56]を併用することで精度が向上した
+fig8
+
+300Wのデータセットでの検証
+t state-of-the-art approach of Mnemonic Descent Method (MDM) [44].
+fig7
+table2
+
+#### Tracking
+
+300VWデータセットを使った[42,12]
+検証方法はlandmarkと同じ
+table3
+
+#### 画像から3Dを予測する
+fig9
+
+体にも適用
+fig10
+
+耳にも適用
+fig11
+fig12
+table4
+
 
 #### トレーニング方法
 3DDFAのデータ[55]を使ってトレーニングした
