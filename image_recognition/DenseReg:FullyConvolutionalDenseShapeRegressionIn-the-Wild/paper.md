@@ -107,13 +107,11 @@ SDMsの初期化できるようにした
 
 統計的な手法
 Stastical Deformable Models(SDMs)、Active Appearance Model(AAMs)、3D Morphable Models(3DMMs)などがある。 
+
 * [40]ランドマークロケーション
 * [22]3dのin the wildの顔認識
 * [44]反復問題の解決
-SDMsの問題点
-  * 外部のシステムから初期化しなくてはいけない -> このペーパーで解決
-  * 反復問題 -> Deep Learningで解決済み
 
-
-
-
+SDMsの問題点  
+* 外部のシステムから初期化しなくてはいけない -> このペーパーで解決  
+* 反復問題 -> Deep Learningで解決済み
