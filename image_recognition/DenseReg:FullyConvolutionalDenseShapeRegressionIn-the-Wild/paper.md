@@ -1,6 +1,8 @@
 ## 関連リンク
 
 * [ペーパー](https://arxiv.org/pdf/1612.01202.pdf)
+* [github](https://github.com/ralpguler/DenseReg)
+* [project page](http://alpguler.com/DenseReg.html)
 
 ## 研究成果
 
@@ -12,7 +14,7 @@ Statistical Deformable Modelsで初期化する state of the art の300Wのベ�
 [55, 39]を使ったフィッテイング
 [22,55]pixelごとのUVコーディネート
 
-figure2
+<img src="./images/DenseReg_fig2.png" width="700">
 
 uhとhvの行列
 垂直方向と、平行方向の2つの回帰を合成する
@@ -21,45 +23,45 @@ uhは、分断したqhと連続したrhを使う
 d = 1/k 定量化のサイズ
 
 uhとqhとrhの評価
-式2
-
+<img src="./images/DenseReg_式2.png" width="700">
 
 qとrを使った方が良い結果がでた
-fig5
+<img src="./images/DenseReg_fig5.png" width="700">
 
 顔は8つの部分に分ける
-fig6
+<img src="./images/DenseReg_fig6.png" width="700">
 
 DeepLab-v2[11]と比較して分類の精度は向上した
-table1
+<img src="./images/DenseReg_table1.png" width="700">
 
-####Landmark
+### Landmark
 
 landmark-matching[56]を併用することで精度が向上した
-fig8
+<img src="./images/DenseReg_fig8.png" width="700">
 
 300Wのデータセットでの検証
-t state-of-the-art approach of Mnemonic Descent Method (MDM) [44].
-fig7
-table2
+state-of-the-artの検証にはMnemonic Descent Method (MDM) [44]を使った
+<img src="./images/DenseReg_fig7.png" width="700">
+<img src="./images/DenseReg_table2.png" width="700">
 
-#### Tracking
+### Tracking
 
 300VWデータセットを使った[42,12]
 検証方法はlandmarkと同じ
-table3
+<img src="./images/DenseReg_table3.png" width="700">
 
-#### 画像から3Dを予測する
-fig9
+### 画像から3Dを予測する
+<img src="./images/DenseReg_fig9.png" width="700">
 
-体にも適用
-fig10
+### 体にも適用
+<img src="./images/DenseReg_fig10.png" width="700">
 
-耳にも適用
-fig11
-fig12
-table4
+### 耳にも適用
+<img src="./images/DenseReg_fig11.png" width="700">
+<img src="./images/DenseReg_fig12.png" width="700">
+<img src="./images/DenseReg_table4.png" width="700">
 
+### 学習方法
 
 #### トレーニング方法
 3DDFAのデータ[55]を使ってトレーニングした
@@ -74,17 +76,14 @@ AFWの3148の画像を使って、[32]のout-of-the-box DPMの顔認識をつか
 ResNet101[19]の拡大版[10,29]を使った
 ストライドは8
 
-bilinear interpolation
-
-quantizedとnon quantizedは何か？
+（？）bilinear interpolation  
+（？）quantizedとnon quantizedは何か？
 
 データベースをあらかじめMS COCO segmentation task[27]でトレーニングしておいた
 ガウシアン分布のレイヤーも追加しておいた
 ラーニングレートは0.001
 バッチサイズは10イメージで20k繰り返す
 トレーニング中はスケーリングして最終的に切り取る
-
-
 
 ## 関連研究
 
